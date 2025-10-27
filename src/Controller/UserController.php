@@ -72,7 +72,7 @@ final class UserController extends AbstractController
                 dd($adminmail->ErrorInfo);
                 $this->addFlash('error','Erreur PHPMailer : ' . $adminmail->ErrorInfo);
             }
-            return $this->redirectToRoute('app_user'); // à adapter selon ta route
+            return $this->redirectToRoute('home'); // à adapter selon ta route
 
         }
         return $this->render('user/index.html.twig', [

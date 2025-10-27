@@ -1,0 +1,311 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Âme Expérience{% endblock %}
+
+{% block body %}
+<header class="fixed w-full bg-gray-900 z-50 shadow-md">
+  <nav class="hidden lg:flex lg:flex-wrap justify-center lg:justify-around py-4 text-sm font-medium text-white">
+    <a href="#about" class="hover:text-primary mx-2">Qui sommes-nous ?</a>
+    <a href="#services" class="hover:text-primary mx-2">Nos Services</a>
+    <a href="#planning" class="hover:text-primary mx-2">Planning</a>
+    <a href="#testimonials" class="hover:text-primary mx-2">Avis</a>
+    <a href="#contact" class="hover:text-primary mx-2">Nous contacter</a>
+  </nav>
+</header>
+
+<div id="caca" class="pt-16">
+    {% for flash in app.flashes('error') %}
+        <div class="p-2 mb-3">
+            <div class="alert alert-error shadow-lg">
+                <h3 class="font-bold">Erreur</h3>
+                <div>{{ flash|raw }}</div>
+                <box-icon name='x'></box-icon>
+            </div>
+        </div>
+    {% endfor %}
+
+    <section class="h-screen relative flex items-center justify-center bg-gray-900 bg-cover bg-center pb-20" style="background-image: url('/images/hero.jpg');">
+        <div id="particles-js" class="absolute inset-0 z-0"></div>
+
+        <div class="relative z-10  flex flex-col items-center justify-center gap-4 text-center">
+            <img src="{{ asset('images/logob.png') }}" alt="Expérience immersive" width="250px" class="animate-glow logo-glow"/>
+            <h1 class="hidden lg:block text-5xl font-bold bg-black bg-opacity-60 p-6 rounded-2xl bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 animate-glow">
+                Expériences Immersives
+            </h1>
+        </div>
+    </section>
+
+    <section id="about" class="relative bg-black min-h-screen section flex items-center justify-center px-6 md:px-8 py-16 bg-black text-white overflow-hidden">
+        <div class="hidden md:grid absolute inset-0 z-0 w-full h-full p-4 grid-cols-12 gap-4 opacity-30">
+            <img src="{{ asset('images/about1.png') }}" class="col-span-3 h-[35vh] object-cover rounded-lg" />
+            <img src="{{ asset('images/about2.png') }}" class="col-span-4 h-[50vh] object-cover rounded-lg" />
+            <img src="{{ asset('images/about3.png') }}" class="col-span-2 h-[30vh] object-cover rounded-lg" />
+            <img src="{{ asset('images/about4.png') }}" class="col-span-3 h-[40vh] object-cover rounded-lg" />
+            <img src="{{ asset('images/about5.png') }}" class="col-span-6 h-[60vh] object-cover rounded-lg" />
+            <img src="{{ asset('images/about6.png') }}" class="col-span-3 h-[38vh] object-cover rounded-lg" />
+            <img src="{{ asset('images/about7.png') }}" class="col-span-3 h-[42vh] object-cover rounded-lg" />
+        </div>
+
+        <div class="relative z-10 max-w-3xl bg-black/60 backdrop-blur-md p-8 rounded-xl shadow-xl text-center lg:text-start">
+            <h2 class="text-4xl font-bold mb-4">Qui sommes-nous ?</h2>
+            <p class="mb-6">
+                <strong>ÂME</strong> est une entreprise réunionnaise dédiée à la création d’événements immersifs mêlant art, culture et technologies.
+                <br>Notre ambition : proposer des expériences qui éveillent les sens, racontent des histoires, et valorisent la richesse artistique et culturelle de <strong>La Réunion</strong>.
+            </p>
+
+            <p class="mb-6">
+                Nous imaginons nos propres événements culturels ouverts au public, mais aussi des expériences sur mesure pour les entreprises :
+                <br><em>lancements de produits, activations de marque, séminaires ou soirées immersives clés en main.</em>
+            </p>
+
+            <h3 class="text-2xl font-semibold mb-4">Un lieu modulable au service de l’expérience</h3>
+
+            <p class="mb-4">
+                Notre espace se compose de <strong>trois salles totalement modulables</strong>, conçues pour accueillir :
+            </p>
+
+            <ul class="list-disc list-inside mb-6 text-left">
+                <li>Expositions immersives</li>
+                <li>Performances artistiques</li>
+                <li>Événements d’entreprises (galas, lancements de produits…)</li>
+            </ul>
+
+            <p class="mb-6">
+                Le tout complété par un <strong>bar à cocktails créatif</strong> (<a href="{{ path('carte') }}" target="_blank" class="text-purple-400 hover:text-purple-600 transition-colors">cliquez ici pour afficher la carte</a>), pensé comme un espace de rencontre, d’échange et de détente, au cœur de l’expérience.
+            </p>
+
+            <div class="bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-red-500/20 p-6 rounded-xl border border-pink-500/30">
+                <p class="italic text-lg mb-4">✨ Vous souhaitez créer un événement unique, artistique et mémorable ?</p>
+                <p>Rencontrons-nous. Ensemble, donnons vie à des expériences qui ont du sens — <strong>et une âme</strong>.</p>
+                <p class="mt-4">📩 <strong>Contactez-nous</strong> dès maintenant pour imaginer votre prochain événement.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-black text-white" id="services">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">Nos Services</h2>
+            
+            <!-- Tarifs -->
+            <h3 class="text-2xl font-semibold mb-4 text-center">Événements Grand Public</h3>
+            <div class="max-w-4xl mx-auto text-center mb-12">
+                <div class="glide" id="glide_event">
+                    <div class="glide__track" data-glide-el="track">
+                        <ul class="glide__slides h-[40vh] md:h-[60vh]">
+                            <li class="glide__slide relative">
+                                <img src="/images/petit-prince.jpg" class="w-full h-full object-cover rounded-xl" data-description="Une plongée poétique et immersive dans l’univers du célèbre conte.">
+                            </li>
+                            <li class="glide__slide relative">
+                                <img src="/images/about1.png" class="w-full h-full object-cover rounded-xl" data-description="Une aventure japonaise immersive entre cosplay, projection et interactivité dans l'univers du manga Bleach.">
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="glide__arrows" data-glide-el="controls">
+                        <button class="glide__arrow glide__arrow--left btn btn-circle" data-glide-dir="<">❮</button>
+                        <button class="glide__arrow glide__arrow--right btn btn-circle" data-glide-dir=">">❯</button>
+                    </div>
+                </div>
+                <div id="event-description" class="text-lg bg-gray-900 p-6 mt-6 rounded-xl">
+                    Une plongée poétique et immersive dans l’univers du célèbre conte.
+                </div>
+            </div>
+
+            <h4 class="text-xl font-semibold mb-4 text-center">Tarifs</h4>
+            <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-12">
+                <div class="rounded-xl overflow-hidden shadow-md border border-purple-400/30">
+                    <img src="/images/tarif1.jpeg" alt="Tarif 1" class="w-full object-cover" />
+                </div>
+                <div class="rounded-xl overflow-hidden shadow-md border border-purple-400/30">
+                    <img src="/images/tarif2.jpeg" alt="Tarif 2" class="w-full object-cover" />
+                </div>
+            </div>
+
+            <!-- Service événement personnalisé -->
+            <div class="mb-12 flex flex-col justify-center items-center">
+                <h3 class="text-2xl font-semibold mb-4 text-center">Événements Privées</h3>
+                <img src="/images/service-evenement.jpeg" alt="Service événement personnalisé" class="max-w-md w-full h-auto object-contain rounded-xl shadow-lg" />
+            </div>
+
+
+        </div>
+    </section>
+
+    {# <section id="events" class="min-h-screen bg-black section px-6 md:px-8 py-16 text-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-8">Nos événements</h2>
+            <div class="glide" id="glide_event">
+                <div class="glide__track" data-glide-el="track">
+                    <ul class="glide__slides h-[40vh] md:h-[60vh]">
+                        <li class="glide__slide relative">
+                            <img src="/images/petit-prince.jpg" class="w-full h-full object-cover rounded-xl" data-description="Une plongée poétique et immersive dans l’univers du célèbre conte.">
+                        </li>
+                        <li class="glide__slide relative">
+                            <img src="/images/about1.png" class="w-full h-full object-cover rounded-xl" data-description="Une aventure japonaise immersive entre cosplay, projection et interactivité dans l'univers du manga Bleach.">
+                        </li>
+                    </ul>
+                </div>
+                <div class="glide__arrows" data-glide-el="controls">
+                    <button class="glide__arrow glide__arrow--left btn btn-circle" data-glide-dir="<">❮</button>
+                    <button class="glide__arrow glide__arrow--right btn btn-circle" data-glide-dir=">">❯</button>
+                </div>
+            </div>
+            <div id="event-description" class="text-lg bg-gray-900 p-6 mt-6 rounded-xl">
+                Une plongée poétique et immersive dans l’univers du célèbre conte.
+            </div>
+        </div>
+    </section> #}
+
+    <!-- SECTION: Calendrier des événements (planning réel) -->
+    <section id="planning" class="lg:h-screen bg-black section px-6 md:px-8 py-16 text-white">
+        <h2 class="text-4xl font-bold text-center mb-12">Calendrier des Événements</h2>
+        <div class="max-w-5xl mx-auto flex flex-col justify-center h-[80%]">
+            <div class="flex lg:flex-row flex-col justify-between items-center mb-6">
+                <h2 id="monthLabel" class="text-3xl font-bold mb-5"></h2>
+                <div class="flex gap-2">
+                    <button id="prevWeek" class="px-4 py-2 bg-purple-600 rounded-lg hover:bg-purple-700 transition-colors">← Précédent</button>
+                    <button id="currentWeek" class="px-4 py-2 bg-purple-600 rounded-lg hover:bg-purple-700 transition-colors">Cette semaine</button>
+                    <button id="nextWeek" class="px-4 py-2 bg-purple-600 rounded-lg hover:bg-purple-700 transition-colors">Suivant →</button>
+                </div>
+            </div>
+
+            <!-- Bordure dégradée autour du calendrier uniquement -->
+            <div class="relative mt-10">
+                <div class="absolute inset-0 rounded-xl bg-gradient-to-r from-[#ff5ca5] to-[#a855f7] blur-xl opacity-50"></div>
+                <div class="relative bg-gray-950 rounded-xl p-6 shadow-lg">
+                    <!-- Desktop: Days in columns -->
+                    <div class="hidden lg:grid grid-cols-7 gap-4 text-center border-b border-gray-600 pb-4 mb-6">
+                        <div>Lundi</div>
+                        <div>Mardi</div>
+                        <div>Mercredi</div>
+                        <div>Jeudi</div>
+                        <div>Vendredi</div>
+                        <div>Samedi</div>
+                        <div>Dimanche</div>
+                    </div>
+                    <div id="weekDaysDesktop" class="hidden lg:grid grid-cols-7 gap-4 h-auto"></div>
+
+                    <!-- Mobile: Days in row -->
+                    <div id="weekDaysMobile" class="lg:hidden flex flex-col gap-4"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="min-h-screen bg-black section text-white px-6 py-20">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-12">Ce qu’ils pensent de nous</h2>
+            <div class="hidden lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+                {% set reviews = [
+                    {text: "Une expérience inoubliable !", stars: 5, name: "Alexandre T."},
+                    {text: "Je reviendrai sans hésiter.", stars: 4, name: "Brigitte L."},
+                    {text: "L’immersion était totale.", stars: 5, name: "Diana P."},
+                    {text: "Magique, tout simplement.", stars: 4, name: "Cyril D."},
+                    {text: "Un vrai voyage sensoriel.", stars: 5, name: "Inès Z."},
+                    {text: "Une activation de marque à couper le souffle.", stars: 5, name: "LVMH"},
+                    {text: "Une immersion parfaite pour notre lancement.", stars: 5, name: "Ubisoft"},
+                    {text: "Les invités étaient bluffés.", stars: 4, name: "Orange"},
+                    {text: "Allier luxe et poésie, pari réussi.", stars: 5, name: "Cartier"}
+                ] %}
+                {% for review in reviews %}
+                    <div class="relative p-[2px] rounded-xl bg-gradient-to-r from-[#ca5fff] via-[#ff72e1] to-[#a772ff]">
+                        <div class="bg-gray-900 rounded-xl p-6 text-center md:text-left h-[100%]">
+                            <p class="italic mb-4">"{{ review.text }}"</p>
+                            <div class="flex items-center mb-2 text-yellow-400">
+                            {% for i in 1..review.stars %}★{% endfor %}
+                            </div>
+                            <p class="text-sm text-gray-300 font-semibold">{{ review.name }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+
+            <div class="swiper w-full block lg:absolute lg:opacity-0 lg:pointer-events-none">
+                <div class="swiper-wrapper hidden">
+                    {% set reviews = [
+                    {"text": "Une expérience inoubliable !", "stars": 5, "author": "Alexandre T."},
+                    {"text": "Je reviendrai sans hésiter.", "stars": 4, "author": "Brigitte L."},
+                    {"text": "L’immersion était totale.", "stars": 5, "author": "Diana P."},
+                    {"text": "Magique, tout simplement.", "stars": 4, "author": "Cyril D."},
+                    {"text": "Un vrai voyage sensoriel.", "stars": 5, "author": "Inès Z."},
+                    {"text": "Une activation de marque à couper le souffle.", "stars": 5, "author": "LVMH"},
+                    {"text": "Une immersion parfaite pour notre lancement.", "stars": 5, "author": "Ubisoft"},
+                    {"text": "Les invités étaient bluffés.", "stars": 4, "author": "Orange"},
+                    {"text": "Allier luxe et poésie, pari réussi.", "stars": 5, "author": "Cartier"},
+                    ] %}
+                    {% for review in reviews %}
+                    <div class="swiper-slide px-4">
+                        <div class="relative p-[2px] rounded-xl bg-gradient-to-r from-[#ca5fff] via-[#ff72e1] to-[#a772ff]">
+                            <div class="bg-gray-900 rounded-xl p-6 text-center md:text-left h-[100%]">
+                                <p class="italic mb-4">"{{ review.text }}"</p>
+                                <div class="flex items-center mb-2 text-yellow-400">
+                                {% for i in 1..review.stars %}★{% endfor %}
+                                </div>
+                                <p class="text-sm text-gray-300 font-semibold">{{ review.author }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <!-- Pagination -->
+                <div class="swiper-pagination mt-4"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="lg:h-screen section bg-black text-center px-6 md:px-8 py-16 text-white">
+        <div class="w-full flex flex-col h-full items-center">
+            <h2 class="text-4xl font-bold mb-6">Nous contacter</h2>
+            <p>Vous souhaitez organiser votre évènement ? <br> Contactez-nous sans plus attendre</p>
+            <div class="relative w-full md:w-[60%] h-[70%] mt-10">
+                <div class="absolute inset-0 rounded-xl bg-gradient-to-r from-[#ff5ca5] to-[#a855f7] blur-xl opacity-50"></div>
+                
+                <form method="post" class="relative flex flex-col gap-4 justify-center w-full h-full bg-gray-950 rounded-xl px-6 md:px-10 py-5">
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <input required name="nom" type="text" placeholder="Nom" class="input input-bordered w-full" />
+                        <input required name="prenom" type="text" placeholder="Prénom" class="input input-bordered w-full" />
+                    </div>
+                    <input required type="email" name="email" placeholder="Email" class="input input-bordered w-full" />
+                    <input required type="text" name="objet" placeholder="Objet" class="input input-bordered w-full" />
+                    <textarea required name="content" class="textarea textarea-bordered w-full" placeholder="Votre message"></textarea>
+                    <button class="btn bg-gradient-to-r from-purple-600 via-purple-500 to-purple-400 hover:from-purple-700 hover:via-purple-600 hover:to-purple-500 text-white font-semibold transition-colors duration-300">
+                        Envoyer
+                    </button>
+                </form>
+            </div>
+
+
+            <div class="relative flex-1 mt-10">
+                <div class="absolute inset-0 rounded-xl bg-gradient-to-r from-[#ff5ca5] to-[#a855f7] blur-xl opacity-50"></div>
+                <div class="relative bg-gray-950 rounded-xl p-6 shadow-lg text-left">
+                    <h3 class="text-2xl font-semibold mb-4">Nos coordonnées</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3">
+                            <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            <a href="mailto:contace.ame974@gmail.com" class="text-white hover:text-purple-400 transition-colors">contacte.ame974@gmail.com</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                            <a href="tel:+262693855078" class="text-white hover:text-purple-400 transition-colors">+262 693 85 50 78</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+                            </svg>
+                            <p class="text-white hover:text-purple-400 transition-colors">ame_reunion974 (Instagram, Facebook, Linkedin)</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center section py-8 bg-black text-gray-500">
+        &copy; 2025 ÂME. Tous droits réservés.
+    </footer>
+</div>
+{% endblock %}

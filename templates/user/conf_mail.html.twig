@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="min-h-screen flex flex-col items-center justify-center">
+        <h1 class="text-3xl font-semibold">Votre email a été envoyé, vous recevrez une réponse dans les plus bref délais</h1>
+        <a href="{{path('app_user')}}" class="btn btn-primary mt-5">Retour au site</a>
+    </div>
+{% endblock %}

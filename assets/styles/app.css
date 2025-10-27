@@ -1,0 +1,33 @@
+@import "tailwindcss";
+@plugin "daisyui";
+.carousel-item img {
+    transition: transform 0.5s ease;
+  }
+  .carousel-item:hover img {
+    transform: scale(1.03);
+  }
+  
+  @keyframes text-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.6));
+  }
+  50% {
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 1));
+  }
+}
+.animate-text-glow {
+  animation: text-glow 2s infinite ease-in-out;
+}
+
+@keyframes glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 4px rgba(236, 72, 153, 0.4)); /* rose clair et doux */
+  }
+  50% {
+    filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.8)); /* violet plus intense */
+  }
+}
+
+.animate-glow {
+  animation: glow 2s infinite ease-in-out;
+}
